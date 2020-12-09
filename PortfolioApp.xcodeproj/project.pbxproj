@@ -14,6 +14,8 @@
 		4028A5D82580D0F6005F3AF9 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5D62580D0F6005F3AF9 /* Main.xcdatamodeld */; };
 		4028A5DB2580D5D0005F3AF9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5DA2580D5D0005F3AF9 /* DataController.swift */; };
 		4028A5E12580E15E005F3AF9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028A5E02580E15E005F3AF9 /* CloudKit.framework */; };
+		4028A5E32580F658005F3AF9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5E22580F658005F3AF9 /* HomeView.swift */; };
+		4028A5E72580F70F005F3AF9 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5E62580F70F005F3AF9 /* ProjectsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		4028A5DA2580D5D0005F3AF9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4028A5DD2580E12A005F3AF9 /* PortfolioApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioApp.entitlements; sourceTree = "<group>"; };
 		4028A5E02580E15E005F3AF9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4028A5E22580F658005F3AF9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4028A5E62580F70F005F3AF9 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				4028A5CC2580CFA8005F3AF9 /* Preview Content */,
 				4028A5D62580D0F6005F3AF9 /* Main.xcdatamodeld */,
 				4028A5DA2580D5D0005F3AF9 /* DataController.swift */,
+				4028A5E22580F658005F3AF9 /* HomeView.swift */,
+				4028A5E62580F70F005F3AF9 /* ProjectsView.swift */,
 			);
 			path = PortfolioApp;
 			sourceTree = "<group>";
@@ -158,9 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4028A5E72580F70F005F3AF9 /* ProjectsView.swift in Sources */,
 				4028A5D82580D0F6005F3AF9 /* Main.xcdatamodeld in Sources */,
 				4028A5DB2580D5D0005F3AF9 /* DataController.swift in Sources */,
 				4028A5C92580CFA6005F3AF9 /* ContentView.swift in Sources */,
+				4028A5E32580F658005F3AF9 /* HomeView.swift in Sources */,
 				4028A5C72580CFA6005F3AF9 /* PortfolioAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
