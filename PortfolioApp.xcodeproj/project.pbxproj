@@ -16,6 +16,8 @@
 		4028A5E12580E15E005F3AF9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028A5E02580E15E005F3AF9 /* CloudKit.framework */; };
 		4028A5E32580F658005F3AF9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5E22580F658005F3AF9 /* HomeView.swift */; };
 		4028A5E72580F70F005F3AF9 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028A5E62580F70F005F3AF9 /* ProjectsView.swift */; };
+		402C4BB4258FCEBD006C7A77 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C4BB3258FCEBD006C7A77 /* EditItemView.swift */; };
+		402C4BB7258FD5EC006C7A77 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C4BB6258FD5EC006C7A77 /* ItemRowView.swift */; };
 		40937DB6258214FA00BACD92 /* Item-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40937DB5258214FA00BACD92 /* Item-CoreDataHelpers.swift */; };
 		40937DB9258216EB00BACD92 /* Project-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40937DB8258216EB00BACD92 /* Project-CoreDataHelper.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +35,8 @@
 		4028A5E02580E15E005F3AF9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4028A5E22580F658005F3AF9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4028A5E62580F70F005F3AF9 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		402C4BB3258FCEBD006C7A77 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		402C4BB6258FD5EC006C7A77 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		40937DB5258214FA00BACD92 /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		40937DB8258216EB00BACD92 /* Project-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,8 @@
 				4028A5E62580F70F005F3AF9 /* ProjectsView.swift */,
 				40937DB5258214FA00BACD92 /* Item-CoreDataHelpers.swift */,
 				40937DB8258216EB00BACD92 /* Project-CoreDataHelper.swift */,
+				402C4BB3258FCEBD006C7A77 /* EditItemView.swift */,
+				402C4BB6258FD5EC006C7A77 /* ItemRowView.swift */,
 			);
 			path = PortfolioApp;
 			sourceTree = "<group>";
@@ -174,10 +180,12 @@
 				4028A5D82580D0F6005F3AF9 /* Main.xcdatamodeld in Sources */,
 				4028A5DB2580D5D0005F3AF9 /* DataController.swift in Sources */,
 				4028A5C92580CFA6005F3AF9 /* ContentView.swift in Sources */,
+				402C4BB7258FD5EC006C7A77 /* ItemRowView.swift in Sources */,
 				4028A5E32580F658005F3AF9 /* HomeView.swift in Sources */,
 				4028A5C72580CFA6005F3AF9 /* PortfolioAppApp.swift in Sources */,
 				40937DB9258216EB00BACD92 /* Project-CoreDataHelper.swift in Sources */,
 				40937DB6258214FA00BACD92 /* Item-CoreDataHelpers.swift in Sources */,
+				402C4BB4258FCEBD006C7A77 /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
