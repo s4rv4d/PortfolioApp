@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditItemView: View {
     
+    /// dont need to add @ObservedObjects, because managedObjects are observable by default
     let item: Item
     @EnvironmentObject var dataController: DataController
     
@@ -29,12 +30,12 @@ struct EditItemView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic Settings")) {
-                TextField("Item name", text: $title)
-                TextField("Description", text: $detail)
+                TextField("Item name", text: $title.onChange(update))
+                TextField("Description", text: $detail.onChange(update))
             }
             
             Section(header: Text("Priority")) {
-                Picker("Priority", selection: $priority) {
+                Picker("Priority", selection: $priority.onChange(update)) {
                     Text("Low").tag(1)
                     Text("Medium").tag(2)
                     Text("High").tag(3)
@@ -43,16 +44,16 @@ struct EditItemView: View {
             }
             
             Section {
-                Toggle("Mark completed", isOn: $completed)
+                Toggle("Mark completed", isOn: $completed.onChange(update))
             }
         }
         .navigationTitle("Edit item")
-        .onDisappear(perform: update)
+        .onDisappear(perform: dataController.save)
     }
     
     func update() {
         
-        // need to notify of change
+        /// need to notify of change, changing the parent project will in turn update all the items in it
         item.project?.objectWillChange.send()
         
         item.title = title

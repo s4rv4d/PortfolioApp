@@ -18,7 +18,7 @@ struct ProjectsView: View {
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
         
-        // here we are setting value of closed to filter out data, using %d as args
+        /// here we are setting value of closed to filter out data, using %d as args
         projects = FetchRequest<Project>(entity: Project.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)
         ], predicate: NSPredicate(format: "closed = %d", showClosedProjects))
@@ -28,12 +28,12 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: Text(project.projectTitle)) {
+                    Section(header: ProjectHeaderView(project: project)) {
                         ForEach(project.projectItems) { item in
                             ItemRowView(item: item)
                         }
-//                         or
-//                        ForEach(project.projectItems, content: ItemRowView.init)
+///                         or
+///                        ForEach(project.projectItems, content: ItemRowView.init)
                     }
                 }
             }
