@@ -24,10 +24,12 @@ extension Project {
     }
     
     var projectItems: [Item] {
-        let itemArray = items?.allObjects as? [Item] ?? []
-        
+        items?.allObjects as? [Item] ?? []
+    }
+    
+    var projectItemsDefaultSorted: [Item] {        
         // return sorted array, if completed puts towards the end, also priority check when both arent completed
-        return itemArray.sorted { first, second in
+        projectItems.sorted { first, second in
             if first.completed == false {
                 if second.completed == true {
                     return true
@@ -68,6 +70,17 @@ extension Project {
         project.creationDate = Date()
         
         return project
+    }
+    
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .title:
+            return projectItems.sorted(by: \Item.itemTitle)
+        case .creationDate:
+            return projectItems.sorted(by: \Item.itemCreationDate)
+        case .optimized:
+            return projectItemsDefaultSorted
+        }
     }
     
 }
