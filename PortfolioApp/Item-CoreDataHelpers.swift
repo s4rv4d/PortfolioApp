@@ -14,7 +14,7 @@ extension Item {
     }
     
     var itemTitle: String {
-        title ?? "New Item"
+        title ?? NSLocalizedString("New Item", comment: "Create a new item in a project")
     }
     
     var itemDetail: String {
