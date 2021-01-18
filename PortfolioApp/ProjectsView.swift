@@ -86,7 +86,12 @@ struct ProjectsView: View {
                                 dataController.save()
                             }
                         } label: {
-                            Label("Add project", systemImage: "plus")
+                            // doing this hack, cause theres an accessibility bug in swiftui
+                            if UIAccessibility.isVoiceOverRunning {
+                                Text("Add project")
+                            } else {
+                                Label("Add project", systemImage: "plus")
+                            }
                         }
                     }
                 }
