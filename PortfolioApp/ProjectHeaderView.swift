@@ -5,12 +5,14 @@
 //  Created by Sarvad Shetty on 21/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import SwiftUI
 
 struct ProjectHeaderView: View {
-    
     @ObservedObject var project: Project
     
+    // MARK: - Life cycle
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -18,9 +20,7 @@ struct ProjectHeaderView: View {
                 ProgressView(value: project.completionAmount)
                     .accentColor(Color(project.projectColor))
             }
-            
             Spacer()
-            
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
                     .imageScale(.large)

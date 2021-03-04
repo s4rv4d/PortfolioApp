@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 14/01/2021.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import SwiftUI
 
 struct AwardsView: View {
@@ -36,21 +38,38 @@ struct AwardsView: View {
                                 .scaledToFit()
                                 .padding()
                                 .frame(width: 100, height: 100)
-                                .foregroundColor(dataController.hasEarned(for: award) ? Color(award.color) : Color.secondary.opacity(0.5))
+                                .foregroundColor(color(for: award))
                         }
-                        .accessibilityLabel(Text(dataController.hasEarned(for: award) ? "Unlocked award: \(award.name)" : "Locked!"))
+                        .accessibilityLabel(Text(label(for: award)))
                         .accessibilityHint(Text(award.description))
                     }
                 }
             }
             .navigationTitle(Text("Awards"))
         }
-        .alert(isPresented: $showingAwardDetail) {
-            if dataController.hasEarned(for: selectedAwards) {
-                return Alert(title: Text("Unlocked award: \(selectedAwards.name)"), message: Text(selectedAwards.description), dismissButton: .default(Text("OK")))
-            } else {
-                return Alert(title: Text("Locked!"), message: Text(selectedAwards.description), dismissButton: .default(Text("OK")))
-            }
+        .alert(isPresented: $showingAwardDetail, content: getAwardAlert)
+    }
+    
+    // MARK: - Functions
+    func color(for award: Award) -> Color {
+        dataController.hasEarned(for: award) ? Color(award.color) : Color.secondary.opacity(0.5)
+    }
+    
+    func label(for award: Award) -> String {
+        dataController.hasEarned(for: award) ? "Unlocked award: \(award.name)" : "Locked!"
+    }
+    
+    func getAwardAlert() -> Alert {
+        if dataController.hasEarned(for: selectedAwards) {
+            return Alert(title: Text("Unlocked award: \(selectedAwards.name)"),
+                         message: Text(selectedAwards.description),
+                         dismissButton: .default(Text("OK"))
+            )
+        } else {
+            return Alert(title: Text("Locked!"),
+                         message: Text(selectedAwards.description),
+                         dismissButton: .default(Text("OK"))
+            )
         }
     }
 }

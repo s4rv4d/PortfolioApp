@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 09/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import SwiftUI
 
 @main
@@ -25,8 +27,12 @@ struct PortfolioAppApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
-                /// when app goes into background, save changes
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: save(_:))
+                .onReceive(
+                    NotificationCenter.default.publisher(
+                        for: UIApplication.willResignActiveNotification),
+                    perform: save(_:)
+                )
+            // when app goes into background, save changes
         }
     }
     

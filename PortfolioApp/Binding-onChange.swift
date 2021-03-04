@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension Binding {
-    
     /// onChange extension function for property wrapper
     func onChange(_ handler: @escaping () -> Void) -> Binding<Value> {
         Binding(

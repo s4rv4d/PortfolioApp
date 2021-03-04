@@ -5,14 +5,14 @@
 //  Created by Sarvad Shetty on 10/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import Foundation
 
 extension Item {
-    
     enum SortOrder {
         case optimized, title, creationDate
     }
-    
     var itemTitle: String {
         title ?? NSLocalizedString("New Item", comment: "Create a new item in a project")
     }

@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 09/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import CoreData
 import SwiftUI
 
@@ -16,15 +18,13 @@ class DataController: ObservableObject {
     // MARK: Initializers
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
-        
         if inMemory {
+            // swiftlint:disable:next line_length
             // inMemory is for testing data on ram rather than stored on storage i.e., volatile memory, data gets deleted on reset
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-        
         // loading persistent stores
-        container.loadPersistentStores { storeDescription, error in
-            
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("error while loading store: \(error.localizedDescription)")
             }
@@ -48,18 +48,18 @@ class DataController: ObservableObject {
     func createSampleData() throws {
         let viewContext = container.viewContext
         
-        for i in 0...5 {
+        for index in 0...5 {
             // creating projects
             let project = Project(context: viewContext)
-            project.title = "Project \(i)"
+            project.title = "Project \(index)"
             project.items = []
             project.creationDate = Date()
             project.closed = Bool.random()
             
             // creating items
-            for j in 0...10 {
+            for index2 in 0...10 {
                 let item = Item(context: viewContext)
-                item.title = "Item \(j)"
+                item.title = "Item \(index2)"
                 item.creationDate = Date()
                 item.completed = Bool.random()
                 item.project = project

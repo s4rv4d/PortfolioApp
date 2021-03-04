@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 09/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import CoreData
 import SwiftUI
 
@@ -12,10 +14,13 @@ struct HomeView: View {
     
     /// has to be optional
     static let tag: String? = "Home"
-    
     @EnvironmentObject var dataController: DataController
-    @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)], predicate: NSPredicate(format: "closed = false"), animation: .default) var projects: FetchedResults<Project>
-    
+    @FetchRequest(entity: Project.entity(),
+                  sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
+                  predicate: NSPredicate(format: "closed = false"),
+                  animation: .default
+    ) var projects: FetchedResults<Project>
+
     let items: FetchRequest<Item>
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
@@ -24,9 +29,12 @@ struct HomeView: View {
     init() {
         /// init only for creating a custom fetch request
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "completed = false")
+        /// predicates
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundpredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+        request.predicate = compoundpredicate
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority, ascending: false)]
-        
         /// limit search to 10 items
         request.fetchLimit = 10
         items = FetchRequest(fetchRequest: request)
@@ -62,9 +70,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-
-
-//Button("Add Data") {
-//    dataController.deleteAll()
-//    try? dataController.createSampleData()
-//}

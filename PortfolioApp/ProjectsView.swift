@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 09/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import SwiftUI
 
 struct ProjectsView: View {
@@ -56,7 +58,7 @@ struct ProjectsView: View {
                                 }
         ///                         or
         ///                        ForEach(project.projectItems, content: ItemRowView.init)
-                                if showClosedProjects == false  {
+                                if showClosedProjects == false {
                                     Button {
                                         withAnimation {
                                             let item = Item(context: managedObjectContext)
@@ -115,7 +117,6 @@ struct ProjectsView: View {
             SelectSomethingView()
         }
     }
-    
     
 }
 

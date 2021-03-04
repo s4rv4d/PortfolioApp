@@ -5,10 +5,12 @@
 //  Created by Sarvad Shetty on 12/01/2021.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import Foundation
 
 struct Award: Decodable, Identifiable {
-    
+    // swiftlint:disable:next identifier_name
     var id: String { name }
     let name: String
     let description: String

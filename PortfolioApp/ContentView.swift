@@ -5,6 +5,8 @@
 //  Created by Sarvad Shetty on 09/12/2020.
 //
 
+// swiftlint:disable trailing_whitespace
+
 import SwiftUI
 
 struct ContentView: View {
