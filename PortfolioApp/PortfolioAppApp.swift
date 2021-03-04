@@ -28,6 +28,10 @@ struct PortfolioAppApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
                 .onReceive(
+                    // automatically save when we detect that we are no longer the foreground
+                    // app atm. Use this rather than the scene phase API so that we can port
+                    // to macOS where scene phase won't detect out app losing focus as off
+                    // macOS 11.1.
                     NotificationCenter.default.publisher(
                         for: UIApplication.willResignActiveNotification),
                     perform: save(_:)

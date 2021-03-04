@@ -27,9 +27,11 @@ struct HomeView: View {
     }
     
     init() {
-        /// init only for creating a custom fetch request
+        // init only for creating a custom fetch request
+        // construct a fetch request to show the 10 highest priority,
+        // incomplete items from open projects
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        /// predicates
+        
         let completedPredicate = NSPredicate(format: "completed = false")
         let openPredicate = NSPredicate(format: "project.closed = false")
         let compoundpredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])

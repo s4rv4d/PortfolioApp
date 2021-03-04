@@ -21,6 +21,7 @@ class DataController: ObservableObject {
         if inMemory {
             // swiftlint:disable:next line_length
             // inMemory is for testing data on ram rather than stored on storage i.e., volatile memory, data gets deleted on reset
+            // this is for testing and previewing purposes
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
         // loading persistent stores
@@ -80,7 +81,7 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
     }
     
-    // used mainly for previews
+    /// used mainly for previews
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
@@ -91,26 +92,28 @@ class DataController: ObservableObject {
         _ = try? container.viewContext.execute(batchDeleteRequest2)
     }
     
-    // generic func to get a count of items, efficient as it doesnt have to parse through all data every single time
+    /// generic func to get a count of items, efficient as it doesnt have to parse through all data every single time
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
     
-    // to check if award is earned
+    /// to check if award is earned
     func hasEarned(for award: Award) -> Bool {
         switch award.criterion {
         case "items":
+            // returns true if user added certain number of items
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
         case "complete":
+            // returns true if user completed certain number of items
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             fetchRequest.predicate = NSPredicate(format: "completed = true")
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
         default:
-//            fatalError("Unknown award criterion: \(award.criterion)")
-        return false
+            // unknown criterion, which should not be allowed
+            return false
         }
     }
 }

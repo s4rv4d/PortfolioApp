@@ -78,33 +78,8 @@ struct ProjectsView: View {
             }
             .navigationTitle(Text(showClosedProjects ? "Closed Projects" : "Open Projects"))
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if showClosedProjects == false {
-                        Button {
-                            withAnimation {
-                                let project = Project(context: managedObjectContext)
-                                project.closed = false
-                                project.creationDate = Date()
-                                dataController.save()
-                            }
-                        } label: {
-                            // doing this hack, cause theres an accessibility bug in swiftui
-                            if UIAccessibility.isVoiceOverRunning {
-                                Text("Add project")
-                            } else {
-                                Label("Add project", systemImage: "plus")
-                            }
-                        }
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showingSortOrder.toggle()
-                    } label: {
-                        Label("Sort", systemImage: "arrow.up.arrow.down")
-                    }
-                }
+                addProjectToolbarContent
+                sortOrderToolbarContent
             }
             .actionSheet(isPresented: $showingSortOrder) {
                 ActionSheet(title: Text("Sort items"), message: nil, buttons: [
@@ -115,6 +90,42 @@ struct ProjectsView: View {
             }
             
             SelectSomethingView()
+        }
+    }
+    
+    var addProjectToolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            if showClosedProjects == false {
+                Button {
+                    withAnimation {
+                        let project = Project(context: managedObjectContext)
+                        project.closed = false
+                        project.creationDate = Date()
+                        dataController.save()
+                    }
+                } label: {
+                    // doing this hack, cause theres an accessibility bug in swiftui
+                    // where in iOS 14.3 VoiceOver reads the label "Add project" as "Add"
+                    // no matter what accessibility we give this toolbar button when using a label
+                    // hence, when VoiceOver is running we use a Text view instead, forcing a correct reading
+                    // without losing the original layout
+                    if UIAccessibility.isVoiceOverRunning {
+                        Text("Add project")
+                    } else {
+                        Label("Add project", systemImage: "plus")
+                    }
+                }
+            }
+        }
+    }
+    
+    var sortOrderToolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                showingSortOrder.toggle()
+            } label: {
+                Label("Sort", systemImage: "arrow.up.arrow.down")
+            }
         }
     }
     
