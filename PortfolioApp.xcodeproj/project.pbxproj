@@ -37,6 +37,8 @@
 		40F0AFE225B8733C003C130A /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0AFE125B8733C003C130A /* ProjectSummaryView.swift */; };
 		40F57C6F2601E6B000E0E729 /* PortfolioAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F57C6E2601E6B000E0E729 /* PortfolioAppTests.swift */; };
 		40F57C792601E88300E0E729 /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F57C782601E88300E0E729 /* AssetTest.swift */; };
+		40F57C7D2601EEA700E0E729 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F57C7C2601EEA700E0E729 /* ProjectTests.swift */; };
+		40F57C812601F45F00E0E729 /* AwardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F57C802601F45F00E0E729 /* AwardTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		40F57C6E2601E6B000E0E729 /* PortfolioAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppTests.swift; sourceTree = "<group>"; };
 		40F57C702601E6B000E0E729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40F57C782601E88300E0E729 /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
+		40F57C7C2601EEA700E0E729 /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		40F57C802601F45F00E0E729 /* AwardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +245,9 @@
 			children = (
 				40F57C6E2601E6B000E0E729 /* PortfolioAppTests.swift */,
 				40F57C782601E88300E0E729 /* AssetTest.swift */,
+				40F57C7C2601EEA700E0E729 /* ProjectTests.swift */,
 				40F57C702601E6B000E0E729 /* Info.plist */,
+				40F57C802601F45F00E0E729 /* AwardTest.swift */,
 			);
 			path = PortfolioAppTests;
 			sourceTree = "<group>";
@@ -401,7 +407,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F57C792601E88300E0E729 /* AssetTest.swift in Sources */,
+				40F57C812601F45F00E0E729 /* AwardTest.swift in Sources */,
 				40F57C6F2601E6B000E0E729 /* PortfolioAppTests.swift in Sources */,
+				40F57C7D2601EEA700E0E729 /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,7 +58,7 @@ class DataController: ObservableObject {
     func createSampleData() throws {
         let viewContext = container.viewContext
         
-        for index in 0...5 {
+        for index in 0..<5 {
             // creating projects
             let project = Project(context: viewContext)
             project.title = "Project \(index)"
@@ -67,7 +67,7 @@ class DataController: ObservableObject {
             project.closed = Bool.random()
             
             // creating items
-            for index2 in 0...10 {
+            for index2 in 0..<10 {
                 let item = Item(context: viewContext)
                 item.title = "Item \(index2)"
                 item.creationDate = Date()
