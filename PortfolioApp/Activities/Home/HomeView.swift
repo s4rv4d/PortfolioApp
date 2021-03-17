@@ -34,8 +34,8 @@ struct HomeView: View {
         
         let completedPredicate = NSPredicate(format: "completed = false")
         let openPredicate = NSPredicate(format: "project.closed = false")
-        let compoundpredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
-        request.predicate = compoundpredicate
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+        request.predicate = compoundPredicate
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority, ascending: false)]
         /// limit search to 10 items
         request.fetchLimit = 10

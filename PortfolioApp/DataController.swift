@@ -17,7 +17,6 @@ class DataController: ObservableObject {
     /// the lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
     
-    
     /// This initialises a data controller either in memory (for temporary use such as testing or previewing)
     /// or on permanent storage (for use in regular app runs),
     ///
